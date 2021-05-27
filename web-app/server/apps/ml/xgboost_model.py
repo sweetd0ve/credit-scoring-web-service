@@ -41,13 +41,11 @@ class XGBoostClassifier:
         categorical = ['CODE_GENDER', 'NAME_INCOME_TYPE', 'NAME_EDUCATION_TYPE', 'NAME_FAMILY_STATUS',
                        'OCCUPATION_TYPE', 'WEEKDAY_APPR_PROCESS_START', 'ORGANIZATION_TYPE', 'FLAG_DOCUMENT_3']
 
-        #print(input_data[categorical])
 
         # convert categoricals
         for col in categorical:
             le = self.label_encoders[col]
             input_data[col] = le.transform(input_data[col])
-            #print("le done", col)
             TE = self.target_encoders[col]
             input_data[col] = TE.transform(input_data[col])
 
@@ -96,6 +94,7 @@ class XGBoostClassifier:
             #           1.00000000e+00, 3.01455502e+00, 2.05673734e+00, 2.92859207e+05,
             #           4.54251327e+05, 1.48118778e+05]
             #input_data = pd.DataFrame([test_values], columns=features)
+  
             prediction = self.predict(input_data)
             prediction = self.postprocessing(prediction)
         except Exception as e:
