@@ -1,2 +1,3 @@
 # credit-scoring-web-service
-ML Web Service for Home Credit Default Risk dataset
+Web application with the model predicting credit repayment.
+The backend model tuned on Home Default Risk dataset.
